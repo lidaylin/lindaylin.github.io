@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单老虎机</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<style>
+		.wrap {
+			position: relative;
+			width: 510px;
+			height: 510px;
+			border: 1px solid red;
+			margin: 50px auto; 
+		}
+		.wrap li {
+			float: left;
+			width: 100px;
+			height: 100px;
+			font-size: 24px;
+			line-height: 100px;
+			text-align: center;
+			border: 1px solid red;
+		}
+		.rightcon {
+			float: right;
+			width: 102px;
+			height: 306px;
+		}
+		.bottomcon li {
+			float: right;
+		}
+		.bottomcon {
+			overflow: hidden;
+			float: left;
+			width: 510px;
+			height: 102px;
+		}
+		.leftcon li:nth-child(1) {
+			position: absolute;
+			top: 306px;
+		}
+		.leftcon li:nth-child(2) {
+			position: absolute;
+			top: 204px;
+		}
+		.leftcon li:nth-child(3) {
+			position: absolute;
+			top: 102px;
+		}
+		.mid {
+			position: absolute;
+			top:102px;
+			left: 102px;
+			width: 304px;
+			height: 304px;
+			border: 1px solid red;
+		}
+		.select {
+			background: red;
+		}
+		clearfix:after {
+			display: block;
+			content: "\200B";
+			height: 0;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">	
+		<ul class="mid" id="middle"></ul>	
+		<ul class="clearfix">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		<ul>
+		<ul class="rightcon">
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ul>
+		<ul class="bottomcon">
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+			<li>13</li>
+		</ul>
+		<ul class="leftcon">
+			<li>14</li>
+			<li>15</li>
+			<li>16</li>
+		</ul>
+	</div>
+</body>
+<script>
+	/*获取每个小方块标签*/
+	var lis = document.getElementsByTagName("li");
+	/*获取中间区域的标签*/
+	var middle = document.getElementById("middle");
+	/*声明计时器函数*/
+	var timer = null;
+	/*声明标签下标值，并初始化*/
+	var index = 0;
+	/**/
+	var mun = 1;
+	/*声明随机数*/
+	var rand;
+	/*布尔值判断，判断老虎机是否在运作*/
+	var judge = true;
+	/*点击中间的区域，老虎机开始运作*/
+	middle.onclick = function() {
+		if(judge) {
+			/*将布尔值调为false*/
+			judge = false;
+			/*获取随机数*/
+			rand = Math.floor(Math.random()*16 + 1);
+			/*调用计时器函数*/	
+			timer = setInterval(show,16);
+		} 
+	}
+	function show() {
+		/*获取当前的圈位置下标值，并对圈数进行修约*/
+		var indexs = index % 16;
+		var dis = Math.floor((index / 16) + 1);
+		/*获取当前的圈数*/
+		mun++;
+		/*通过圈数值得增加，并让下标值与其的余数是否为零使得速度降下来*/
+		if(mun % dis == 0) {
+			/*通过下标，让当前的方块变色*/
+			for(var i = 0; i < lis.length; i++) {
+				lis[i].className = "";
+			}
+			lis[indexs].className = "select";
+			index++;	
+		}
+		/*判定圈数，若达到目标圈数就在该圈停下来*/
+		if (dis == 4) {
+			if(rand == indexs) {
+				/*清掉计时器*/
+				clearInterval(timer);
+				/*令下标值等于零*/
+				index = 0;
+				/*将老虎机调为可点击的状态*/
+				judge = true;
+			}	
+		}
+	}
+</script>
+</html>
