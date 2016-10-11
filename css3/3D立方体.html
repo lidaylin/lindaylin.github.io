@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>立方体旋转</title>
+	<link rel="stylesheet" type="text/css" href="../css.reset.css">
+	<style>
+		body {
+			-webkit-perspective: 1000;
+			-mos-perspective: 1000;
+			-o-perspective: 1000;
+			-mz-perspective: 1000;
+			transform:  1000;
+		}
+		.wrap {
+			position: relative;
+			width: 250px;
+			height: 250px;
+			margin: 50px auto;
+			-webkit-transform-style: preserve-3d;
+			-webkit-transition: all 5s linear 1s;
+		}
+		.wrap div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 250px;
+			height: 250px;
+			font-size: 32px;
+			line-height: 250px;
+			text-align: center;
+		}
+		.wrap div:nth-child(1) {
+			-webkit-transform: translateZ(125px);
+			-mos-transform: translateZ(125px);
+			-o-transform: translateZ(125px);
+			-mz-transform: translateZ(125px);
+			transform: translateZ(125px);
+			-webkit-backface-visibility: hidden;
+			-mos-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			-mz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			background: rgba(20,144,230,0.5);
+		}
+		.wrap div:nth-child(2) {
+			-webkit-transform: translateZ(-125px) rotateY(180deg);
+			-mos-transform: translateZ(-125px) rotateY(180deg);
+			-o-transform: translateZ(-125px) rotateY(180deg);
+			-mz-transform: translateZ(-125px) rotateY(180deg);
+			transform: translateZ(-125px) rotateY(180deg);
+			-webkit-backface-visibility: hidden;
+			-mos-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			-mz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			background: rgba(209,171,64,0.5);
+		}
+		.wrap div:nth-child(3) {
+			-webkit-transform: translateY(125px) rotateX(-90deg);
+			-mos-transform: translateY(125px) rotateX(-90deg);
+			-o-transform: translateY(125px) rotateX(-90deg);
+			-mz-transform: translateY(125px) rotateX(-90deg);
+			transform: translateY(125px) rotateX(-90deg);
+			-webkit-backface-visibility: hidden;
+			-mos-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			-mz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			background: rgba(240,144,168,0.5);
+		}
+		.wrap div:nth-child(4) {
+			-webkit-transform: translateY(-125px) rotateX(90deg);
+			-mos-transform: translateY(-125px) rotateX(90deg);
+			-o-transform: translateY(-125px) rotateX(90deg);
+			-mz-transform: translateY(-125px) rotateX(90deg);
+			transform: translateY(-125px) rotateX(90deg);
+			-webkit-backface-visibility: hidden;
+			-mos-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			-mz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			background: rgba(73,163,64,0.5);
+		}
+		.wrap div:nth-child(5) {
+			-webkit-transform: translateX(125px) rotateY(90deg);
+			-mos-transform: translateX(125px) rotateY(90deg);
+			-o-transform: translateX(125px) rotateY(90deg);
+			-mz-transform: translateX(125px) rotateY(90deg);
+			transform: translateX(125px) rotateY(90deg);
+			-webkit-backface-visibility: hidden;
+			-mos-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			-mz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			background: rgba(240,144,64,0.5);
+		}
+		.wrap div:nth-child(6) {
+			-webkit-transform: translateX(-125px) rotateY(-90deg);
+			-mos-transform: translateX(-125px) rotateY(-90deg);
+			-o-transform: translateX(-125px) rotateY(-90deg);
+			-mz-transform: translateX(-125px) rotateY(-90deg);
+			transform: translateX(-125px) rotateY(-90deg);
+			-webkit-backface-visibility: hidden;
+			-mos-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			-mz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			background: rgba(230,100,60,0.5)
+		}
+		.wrap:hover {
+			-webkit-transform: rotate3d(1,1,1,360deg);
+			-mos-transform: rotate3d(1,1,1,360deg);
+			-o-transform: rotate3d(1,1,1,360deg);
+			-mz-transform: rotate3d(1,1,1,360deg);
+			transform: rotate3d(1,1,0,360deg);
+		}
+	</style>
+
+</head>
+<body>
+	<div class="wrap">
+		<div>HTML5</div>
+		<div>林炎祥</div>
+		<div>吕木鸡</div>
+		<div>草笑死</div>
+		<div>小黄狗</div>
+		<div>向总</div>
+	</div>
+</body>
+</html>
