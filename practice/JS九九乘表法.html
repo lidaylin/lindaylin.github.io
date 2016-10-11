@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>九九乘法表</title>
+	<style>
+		.warpper {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		h2 {
+			width: 100%;
+			font-size: 42px;
+			color: white;
+			text-shadow: 1px 1px 0 red,-1px -1px 0 blue;
+			text-align: center;
+		}
+		li {
+			list-style: none;
+			overflow: hidden;
+		}
+		span {
+			display: block;
+			width: 70px;
+			float: left;
+			margin-left: 30px;
+			box-shadow: 2px 2px 3px #7d7d7d;
+			margin-top: 5px;
+			font-size: 24px;
+			background: #ff7d7d;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="warpper">
+		<h2>九九乘表法</h2>
+		<ul id="list">
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	/*用双for循环实现DOM操作*/
+	for (var x = 1;x <= 9;x++) {
+		/*创建单行*/
+		var li = document.createElement("li")
+		/*对该行添加方格，根据该行的序号决定添加的个数*/
+		for (var y = 1;y <= x; y++) {
+            var span = document.createElement("span");	
+            /*创建文本节点*/        
+			var textNode =  document.createTextNode(x +"*"+ y +"="+ x*y )
+			/*添加文本节点*/
+			span.appendChild(textNode);
+			/*对该行一一添加元素*/
+			li.appendChild(span);
+		}
+		/*一行一行添加*/
+		list.appendChild(li);			
+	}
+</script>
+</html>
